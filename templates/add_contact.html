@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Contact</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-glass">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('dashboard') }}">Contact Manager</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a class="nav-link" href="{{ url_for('search') }}">Search</a>
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <div class="form-glass p-4">
+            <h2>Add New Contact</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+            <form method="POST">
+                <div class="mb-3">
+                    <label for="mobile" class="form-label">Mobile Phone Number</label>
+                    <input type="tel" class="form-control" id="mobile" name="mobile" required>
+                </div>
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" required>
+                </div>
+                <div class="mb-3">
+                    <label for="address" class="form-label">Address</label>
+                    <textarea class="form-control" id="address" name="address" required></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="registration_number" class="form-label">Registration Number</label>
+                    <input type="text" class="form-control" id="registration_number" name="registration_number" required>
+                </div>
+                <div class="mb-3">
+                    <button type="submit" class="btn btn-primary">Add Contact</button>
+                    <a href="{{ url_for('dashboard') }}" class="btn btn-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

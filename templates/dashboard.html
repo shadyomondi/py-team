@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-glass">
+        <div class="container">
+            <a class="navbar-brand" href="#">Contact Manager</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('add_contact') }}">Add Contact</a>
+                <a class="nav-link" href="{{ url_for('search') }}">Search</a>
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <div class="card-glass p-4">
+            <h2>Welcome, {{ session['username'] }}!</h2>
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="alert alert-{{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+    </div>
+</body>
+</html>

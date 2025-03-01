@@ -1,0 +1,85 @@
+/* static/styles.css */
+
+/* Glass Morphism Effect */
+.glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Navbar Glass Effect */
+.navbar-glass {
+    background: rgba(255, 255, 255, 0.1) !important;
+    backdrop-filter: blur(10px) !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2) !important;
+}
+
+/* Card Glass Effect */
+.card-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Glass Effect */
+.form-glass {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Background Gradient */
+body {
+    background: linear-gradient(45deg,#d2001a, #7462ff, #f48e21, #23d5ab );
+    background-size: 300% 300%;
+    animation: color 12s ease-in-out infinite;
+    min-height: 100vh;
+    color: #fff;
+}
+    @keyframes color {
+        0% {
+          background-position: 0 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0 50%;
+        }
+    }
+
+
+/* Override Bootstrap Button Styles */
+.btn-primary {
+    background: rgba(102, 126, 234, 0.8);
+    border: none;
+    border-radius: 10px;
+    padding: 10px 20px;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background: rgba(102, 126, 234, 1);
+}
+
+/* Input Field Styling */
+.form-control {
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    border-radius: 10px;
+}
+
+.form-control:focus {
+    background: rgba(255, 255, 255, 0.2);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    color: #fff;
+    box-shadow: none;
+}

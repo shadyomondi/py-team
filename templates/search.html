@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Contacts</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-glass">
+        <div class="container">
+            <a class="navbar-brand" href="{{ url_for('dashboard') }}">Contact Manager</a>
+            <div class="navbar-nav ms-auto">
+                <a class="nav-link" href="{{ url_for('dashboard') }}">Dashboard</a>
+                <a class="nav-link" href="{{ url_for('add_contact') }}">Add Contact</a>
+                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container mt-5">
+        <div class="form-glass p-4">
+            <h2>Search Contacts</h2>
+            <form method="POST" class="mb-4">
+                <div class="mb-3">
+                    <label for="registration_number" class="form-label">Registration Number</label>
+                    <input type="text" class="form-control" id="registration_number" name="registration_number" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Search</button>
+            </form>
+
+            {% if contact %}
+                <div class="card-glass p-4">
+                    <h3>Contact Details</h3>
+                    <p><strong>Registration Number:</strong> {{ contact.registration_number }}</p>
+                    <p><strong>Mobile:</strong> {{ contact.mobile }}</p>
+                    <p><strong>Email:</strong> {{ contact.email }}</p>
+                    <p><strong>Address:</strong> {{ contact.address }}</p>
+                </div>
+            {% elif request.method == 'POST' %}
+                <div class="alert alert-info">No contact found with this registration number.</div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
